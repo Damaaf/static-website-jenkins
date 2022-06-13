@@ -8,7 +8,7 @@ RUN git clone https://github.com/damaaf/static-website-jenkins.git /var/www/html
 EXPOSE 80
 EXPOSE $PORT
 #CMD gunicorn --bind 0.0.0.0:$PORT wsgi
-ENTRYPOINT ["/usr/sbin/nginx", "-g", "gunicorn --bind 0.0.0.0:$PORT wsgi", "daemon off;"]
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "gunicorn --bind 0.0.0.0:80 wsgi", "daemon off;"]
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku
 #CMD gunicorn --bind 0.0.0.0:$PORT wsgi
